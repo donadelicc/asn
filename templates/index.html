@@ -6,14 +6,18 @@
     <title>Artificial Sensory Neurons</title>
     <script src="https://js.stripe.com/v3/"></script>
     <style>
+        
         body {
             background-color: white;
             color: black;
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 2;
             line-height: 1.6;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;     /* Firefox */
         }
+     
 
         .container {
             max-width: 1200px;
@@ -38,11 +42,19 @@
             text-align: left;
         }
 
-        .description-container p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            white-space: pre-line;
-        }
+        .description-container h2 {
+    color: #4a90e2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;  /* Add this line */
+    font-size: 1.8rem;
+    }
+
+    .description-container p {
+        margin-top: 0;        /* Add this line */
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        white-space: pre-line;
+    }
 
         .main-image-container {
             margin: 2rem auto;
@@ -62,7 +74,7 @@
         }
 
 
-        .products-container {
+    .products-container {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
@@ -113,12 +125,10 @@
 
     <nav style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: #4a90e2;">
         <div class="logo" style="flex: 1;">
-            <img src="static/images/es-logo2.png" alt="Logo" style="height: 50px;">
+            <img src="static/images/es-logo2.png" alt="Logo" style="height: 100px;">
         </div>
         <ul style="list-style: none; display: flex; flex: 2; justify-content: flex-end; margin: 0; padding: 0;">
-            <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;">Home</a></li>
-            <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;">About</a></li>
-            <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+            <li style="margin-left: 1rem;"><a href="#video" style="color: white; text-decoration: none;">Video</a></li>
         </ul>
     </nav>
 
@@ -132,70 +142,96 @@
         </div>
         
         <div class="description-container">
-            <h2>Forstå hjernens kompleksitet gjennom enkel teknologi</h2>
+            <h2>Understanding brain complexity through simple technology</h2>
             <p>
-Ved NTNU har vi utviklet en nyskapende læringsplattform som gir elever og studenter innsikt i nervesystemets fascinerende funksjoner. Våre kunstige nevroner gjør det mulig å visualisere og forstå grunnprinsippene bak menneskets tanker, følelser og handlinger. Denne fysiske og digitale læringsressursen er designet for å være brukervennlig, fleksibel og skalerbar, slik at lærere kan tilpasse undervisningen etter elevenes behov og interesse.
+        At NTNU, we have developed an innovative learning platform that gives pupils and students insight into the fascinating functions of the nervous system. Our artificial neurons make it possible to visualize and understand the basic principles behind human thoughts, feelings, and actions. This physical and digital learning resource is designed to be user-friendly, flexible, and scalable, allowing teachers to adapt their teaching to students' needs and interests.
             </p>
-
-            <h2>Hvorfor kunstige nevroner?</h2>
+        
+            <h2>Why artificial neurons?</h2>
             <p>
-Nervesystemet er en kompleks verden av nerveceller, signaler og synapser som vanligvis er usynlig og vanskelig å forklare. Gjennom våre forenklede modeller kan studenter få en forståelse av hvordan nervesystemet fungerer i praksis, med fokus på viktige reflekser og signalbaner, som knerefleksen og vestibulo-okulære refleks. Denne forståelsen gir et solid fundament for videre læring i fag som biologi, nevrovitenskap, medisin, psykologi og mer.
+        The nervous system is a complex world of nerve cells, signals, and synapses that are usually invisible and difficult to explain. Through our simplified models, students can gain an understanding of how the nervous system works in practice, focusing on important reflexes and signal pathways, such as the knee reflex and vestibulo-ocular reflex. This understanding provides a solid foundation for further learning in subjects such as biology, neuroscience, medicine, psychology, and more.
             </p>
-
-            <h2>Et effektivt undervisningsmiddel – fysisk, interaktivt og elevaktiverende</h2>
+        
+            <h2>An effective teaching tool – physical, interactive, and student-activating</h2>
             <p>
-Bruken av kunstige nevroner som undervisningsmiddel gir unike fordeler i læringssituasjoner ved å kombinere fysisk interaksjon, elevaktivitet og interaktiv utforsking. Forskning viser at fysiske modeller i undervisningen kan bidra til bedre forståelse av abstrakte konsepter, spesielt i komplekse fagområder som nevrovitenskap, hvor begreper kan være vanskelig å visualisere.
-
-De kunstige nevronene aktiverer elevene gjennom hands-on erfaring, som bidrar til en dypere og mer varig forståelse. Interaktiv læring fremmer aktiv deltakelse, der elevene utforsker, tester hypoteser og ser direkte hvordan endringer i en modell påvirker hele systemet.
-
-Dette samsvarer med forskning som understreker viktigheten av aktiv læring og eksperimentering, som begge styrker elevenes evne til å overføre kunnskap til nye sammenhenger og problemstillinger. Kunstige nevroner som et fysisk og interaktivt verktøy engasjerer derfor elevene på en helhetlig måte, noe som gjør komplekse temaer mer tilgjengelige og inspirerende å utforske.
+        The use of artificial neurons as a teaching tool provides unique advantages in learning situations by combining physical interaction, student activity, and interactive exploration. Research shows that physical models in teaching can contribute to better understanding of abstract concepts, especially in complex fields like neuroscience, where concepts can be difficult to visualize.
+        
+        The artificial neurons activate students through hands-on experience, contributing to a deeper and more lasting understanding. Interactive learning promotes active participation, where students explore, test hypotheses, and directly see how changes in a model affect the entire system.
+        
+        This aligns with research emphasizing the importance of active learning and experimentation, both of which strengthen students' ability to transfer knowledge to new contexts and problems. Artificial neurons as a physical and interactive tool therefore engage students in a holistic way, making complex topics more accessible and inspiring to explore.
             </p>
         </div>
-
 
         <div class="products-container">
             <div class="product">
                 <a href="{{ url_for('order', product='basic') }}" style="text-decoration: none; color: inherit;">
                     <h3>Basic Kit</h3>
-                    <img src="static/images/basic-kit.jpg" alt="Basic Kit" class="product-image">
+                    <img src="static/images/productX.png" alt="Basic Kit" class="product-image">
                     <ul class="product-features">
-                        <li>2 Artificial Neurons</li>
-                        <li>Basic Connection Kit</li>
-                        <li>Starter Guide</li>
-                        <li>USB Cable</li>
+                        <li>Simple design</li>
+                        <li>Plastic casing</li>
+                        <li>LEDs that light up when connected</li>
+                        <li>30 neurons, 10 double-synapses, 10 triple-synapses, 10 long synapses</li>
+                        <li style="opacity: 0;">Integrated software, visualizing the signals as they move through dsds dsds</li>
                     </ul>
                 </a>
+                <div style="border: 1px solid #000; padding: 5px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 20%; text-align: center;">
+                    <p>
+                        2000,- NOK
+                    </p>
+                </div>
             </div>
             
             <div class="product">
                 <a href="{{ url_for('order', product='standard') }}" style="text-decoration: none; color: inherit;">
                     <h3>Standard Kit</h3>
-                    <img src="static/images/standard-kit.jpg" alt="Standard Kit" class="product-image">
+                    <img src="static/images/product_2.png" alt="Standard Kit" class="product-image">
                     <ul class="product-features">
-                        <li>4 Artificial Neurons</li>
-                        <li>Advanced Connection Kit</li>
-                        <li>Comprehensive Manual</li>
-                        <li>USB Cable</li>
-                        <li>Educational Resources</li>
+                        <li>Simple design</li>
+                        <li>Plastic casing</li>
+                        <li>Flashing LEDs with integrated software, visualizing the signals as they move through the nervous system</li>
+                        <li>30 neurons, 10 double-synapses, 10 triple-synapses, 10 long synapses</li>
+
                     </ul>
+                    <div style="border: 1px solid #000; padding: 5px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 20%; text-align: center;">
+                        <p>
+                            5000,- NOK
+                        </p>
+                    </div>
                 </a>
             </div>
             
             <div class="product">
                 <a href="{{ url_for('order', product='premium') }}" style="text-decoration: none; color: inherit;">
                 <h3>Premium Kit</h3>
-                <img src="static/images/premium-kit.jpg" alt="Premium Kit" class="product-image">
+                <img src="static/images/product_standard.jpg" alt="Premium Kit" class="product-image">
                 <ul class="product-features">
-                    <li>6 Artificial Neurons</li>
-                    <li>Professional Connection Kit</li>
-                    <li>Complete Documentation</li>
-                    <li>USB Cable</li>
-                    <li>Educational Resources</li>
-                    <li>Online Training Access</li>
+                    <li>Premium design</li>
+                    <li>Silicone casing</li>
+                    <li>Flashing LEDs with integrated software, visualizing signals and providing more complex interactions between neurons</li>
+                    <li>30 neurons, 10 double-synapses, 10 triple-synapses, 10 long synapses</li>
                     </ul>
                 </a>
+                <div style="border: 1px solid #000;
+                 padding: 5px; display:
+                  inline-block; box-shadow:
+                   0 4px 6px rgba(0, 0, 0, 0.1);
+                    border-radius: 20%; text-align: center; margin-bottom: auto;">
+                    <p>
+                        10000,- NOK
+                    </p>
+                </div>
             </div>
         </div>
+
+        <div id="video" class="video-container">
+            <h2>Neruron Demonstration</h2>
+            <video width="600" controls>
+                <source src="static/videos/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
 
 
 
