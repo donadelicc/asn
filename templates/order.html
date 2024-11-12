@@ -6,23 +6,172 @@
     <title>Document</title>
 </head>
 <body>
-
     
     <div class="interest-container">
-            
-        <h3>Meld din interesse!</h3>
+        <div id="product-unavailable-popup" class="product-unavailable">
+            <div class="popup-content">
+                <span class="close-btn" onclick="hidePopupShowForm()">&times;</span>
+                <p>Oops! Sorry, we don't have this product available yet.</p>
+                <p>But don't worry! Fill in the interest form below, and we'll notify you when it becomes available.</p>
+            </div>
+        </div>
 
-        <form action="mailto:preb1anders1@gmail.com" method="post" enctype="text/plain">
-            <label for="navn">Navn:</label><br>
-            <input type="text" id="navn" name="navn"><br>
-            <label for="epost">E-post:</label><br>
-            <input type="email" id="epost" name="epost"><br>
-            <label for="interesse">Interesse:</label><br>
-            <textarea id="interesse" name="interesse" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Send">
-        </form>
-
+        <div id="interest-form" style="display: none;">
+            <h3>Meld din interesse!</h3>
+            <form action="mailto:preb1anders1@gmail.com" method="post" enctype="text/plain">
+            </form>
+        </div>
     </div>
+
+    <div class="order-form-wrapper">
+        <div class="order-form-container">
+            <h1>Order {{ product }}</h1>
+    
+            <form action="mailto:preb1anders1@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="navn">Navn:</label>
+                    <input type="text" id="navn" name="navn" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="epost">E-post:</label>
+                    <input type="email" id="epost" name="epost" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interesse">Interesse:</label>
+                    <textarea id="interesse" name="interesse" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function hidePopupShowForm() {
+            document.getElementById('product-unavailable-popup').style.display = 'none';
+            document.getElementById('interest-form').style.display = 'block';
+        }
+    </script>
+
+            
+    <style>
+    .product-unavailable {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        position: relative;
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .close-btn:hover {
+        color: #666;
+    }
+
+        /* Add new wrapper class */
+    .order-form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    /* Existing order-form-container styles remain the same */
+    .order-form-container {
+        max-width: 600px;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 80%;
+    }
+
+    .order-form-container h1 {
+        color: #333;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .order-form-container h3 {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+        text-align: left;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+    .submit-btn {
+        background-color: #007bff;
+        color: white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    </style>
+            
+    
+
+
     
 </body>
 </html>

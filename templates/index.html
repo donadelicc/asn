@@ -60,6 +60,53 @@
             margin-top: 2rem;
             font-size: 1.8rem;
         }
+
+
+        .products-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    }
+
+    .product {
+        flex: 1;
+        padding: 2rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .product h3 {
+        color: #4a90e2;
+        margin-bottom: 1rem;
+    }
+
+    .product-image {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .product-features {
+        text-align: left;
+        padding-left: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .product-features li {
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
     </style>
 </head>
 <body>
@@ -104,6 +151,53 @@ De kunstige nevronene aktiverer elevene gjennom hands-on erfaring, som bidrar ti
 Dette samsvarer med forskning som understreker viktigheten av aktiv læring og eksperimentering, som begge styrker elevenes evne til å overføre kunnskap til nye sammenhenger og problemstillinger. Kunstige nevroner som et fysisk og interaktivt verktøy engasjerer derfor elevene på en helhetlig måte, noe som gjør komplekse temaer mer tilgjengelige og inspirerende å utforske.
             </p>
         </div>
+
+
+        <div class="products-container">
+            <div class="product">
+                <a href="{{ url_for('order', product='basic') }}" style="text-decoration: none; color: inherit;">
+                    <h3>Basic Kit</h3>
+                    <img src="static/images/basic-kit.jpg" alt="Basic Kit" class="product-image">
+                    <ul class="product-features">
+                        <li>2 Artificial Neurons</li>
+                        <li>Basic Connection Kit</li>
+                        <li>Starter Guide</li>
+                        <li>USB Cable</li>
+                    </ul>
+                </a>
+            </div>
+            
+            <div class="product">
+                <a href="{{ url_for('order', product='standard') }}" style="text-decoration: none; color: inherit;">
+                    <h3>Standard Kit</h3>
+                    <img src="static/images/standard-kit.jpg" alt="Standard Kit" class="product-image">
+                    <ul class="product-features">
+                        <li>4 Artificial Neurons</li>
+                        <li>Advanced Connection Kit</li>
+                        <li>Comprehensive Manual</li>
+                        <li>USB Cable</li>
+                        <li>Educational Resources</li>
+                    </ul>
+                </a>
+            </div>
+            
+            <div class="product">
+                <a href="{{ url_for('order', product='premium') }}" style="text-decoration: none; color: inherit;">
+                <h3>Premium Kit</h3>
+                <img src="static/images/premium-kit.jpg" alt="Premium Kit" class="product-image">
+                <ul class="product-features">
+                    <li>6 Artificial Neurons</li>
+                    <li>Professional Connection Kit</li>
+                    <li>Complete Documentation</li>
+                    <li>USB Cable</li>
+                    <li>Educational Resources</li>
+                    <li>Online Training Access</li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+
+
 
     </div>
 </body>
