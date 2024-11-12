@@ -3,95 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stripe Payment Integration</title>
+    <title>Artificial Sensory Neurons</title>
     <script src="https://js.stripe.com/v3/"></script>
     <style>
         body {
-            background-color: #0066cc; /* You can adjust this hex color to get the shade of blue you prefer */
-            color: white; /* Adding white text color for better contrast */
+            background-color: #000000;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .title-container {
+            margin-bottom: 3rem;
+        }
+
+        .title-container h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+
+        .description-container {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: left;
+        }
+
+        .description-container p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            white-space: pre-line;
+        }
+
+        .main-image-container {
+            margin: 2rem auto;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        h2 {
+            color: #4a90e2;
+            margin-top: 2rem;
+            font-size: 1.8rem;
         }
     </style>
 </head>
 <body>
-    <h1>Stripe Payment Integration</h1>
-    <form id="payment-form">
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
+    <div class="container">
+        <div class="title-container">
+            <h1>Artificial Sensory Neurons</h1>
         </div>
-        <button id="submit">Pay</button>
-        <div id="card-errors" role="alert"></div>
-    </form>
+        
+        <div class="description-container">
+            <h2>Forstå hjernens kompleksitet gjennom enkel teknologi</h2>
+            <p>
+Ved NTNU har vi utviklet en nyskapende læringsplattform som gir elever og studenter innsikt i nervesystemets fascinerende funksjoner. Våre kunstige nevroner gjør det mulig å visualisere og forstå grunnprinsippene bak menneskets tanker, følelser og handlinger. Denne fysiske og digitale læringsressursen er designet for å være brukervennlig, fleksibel og skalerbar, slik at lærere kan tilpasse undervisningen etter elevenes behov og interesse.
+            </p>
 
-    <script>
-        // Create a Stripe client.
-        var stripe = Stripe('your-publishable-key-here');
+            <h2>Hvorfor kunstige nevroner?</h2>
+            <p>
+Nervesystemet er en kompleks verden av nerveceller, signaler og synapser som vanligvis er usynlig og vanskelig å forklare. Gjennom våre forenklede modeller kan studenter få en forståelse av hvordan nervesystemet fungerer i praksis, med fokus på viktige reflekser og signalbaner, som knerefleksen og vestibulo-okulære refleks. Denne forståelsen gir et solid fundament for videre læring i fag som biologi, nevrovitenskap, medisin, psykologi og mer.
+            </p>
 
-        // Create an instance of Elements.
-        var elements = stripe.elements();
+            <h2>Et effektivt undervisningsmiddel – fysisk, interaktivt og elevaktiverende</h2>
+            <p>
+Bruken av kunstige nevroner som undervisningsmiddel gir unike fordeler i læringssituasjoner ved å kombinere fysisk interaksjon, elevaktivitet og interaktiv utforsking. Forskning viser at fysiske modeller i undervisningen kan bidra til bedre forståelse av abstrakte konsepter, spesielt i komplekse fagområder som nevrovitenskap, hvor begreper kan være vanskelig å visualisere.
 
-        // Custom styling can be passed to options when creating an Element.
-        var style = {
-            base: {
-                color: '#32325d',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
-                }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
-            }
-        };
+De kunstige nevronene aktiverer elevene gjennom hands-on erfaring, som bidrar til en dypere og mer varig forståelse. Interaktiv læring fremmer aktiv deltakelse, der elevene utforsker, tester hypoteser og ser direkte hvordan endringer i en modell påvirker hele systemet.
 
-        // Create an instance of the card Element.
-        var card = elements.create('card', {style: style});
+Dette samsvarer med forskning som understreker viktigheten av aktiv læring og eksperimentering, som begge styrker elevenes evne til å overføre kunnskap til nye sammenhenger og problemstillinger. Kunstige nevroner som et fysisk og interaktivt verktøy engasjerer derfor elevene på en helhetlig måte, noe som gjør komplekse temaer mer tilgjengelige og inspirerende å utforske.
+            </p>
+        </div>
 
-        // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
-
-        // Handle real-time validation errors from the card Element.
-        card.on('change', function(event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-
-        // Handle form submission.
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-
-            stripe.createToken(card).then(function(result) {
-                if (result.error) {
-                    // Inform the user if there was an error.
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    // Send the token to your server.
-                    stripeTokenHandler(result.token);
-                }
-            });
-        });
-
-        // Submit the token to your server.
-        function stripeTokenHandler(token) {
-            // Insert the token ID into the form so it gets submitted to the server
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
-
-            // Submit the form
-            form.submit();
-        }
-    </script>
+        <div class="main-image-container">
+            <img src="static/images/nevroner_dark.jpg" alt="Artificial Sensory Neurons">
+        </div>
+    </div>
 </body>
 </html>
+
