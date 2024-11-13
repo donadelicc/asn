@@ -21,7 +21,7 @@
         <div class="order-form-container">
             <h1>Join our waitlist</h1>
         
-            <form id="waitlistForm" onsubmit="sendEmail(event)">
+            <form id="waitlistForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -44,24 +44,34 @@
 
     <script>
 
-function sendEmail(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value
+        };
         
-        const subject = 'New Waitlist Signup';
-        const body = `
-            Name: ${name}
-            Email: ${email}
-            Phone: ${phone}
-        `;
-        
-        window.location.href = `mailto:preb1anders1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // Optional: Clear the form
-        document.getElementById('waitlistForm').reset();
+        try {
+            const response = await fetch('/api/waitlist', {  // Adjust this endpoint URL to match your backend
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            if (response.ok) {
+                alert('Thank you for joining our waitlist!');
+                document.getElementById('waitlistForm').reset();
+            } else {
+                throw new Error('Something went wrong');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Sorry, there was an error submitting your form. Please try again.');
+        }
     }
 
         function hidePopupShowForm() {
