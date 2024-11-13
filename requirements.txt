@@ -1,5 +1,5 @@
 flask
 gunicorn
 flask-cors
-azure
+azure-storage-blob
 python-dotenv
